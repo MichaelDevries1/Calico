@@ -1,8 +1,14 @@
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        //Board creation for 4 players
+    static Scanner sc = new Scanner(System.in);
+    public static void main (String[] args) {
+        createBag();
+        //newGame();
+
+        /**Board creation for 4 players
         // Game Board: Create a game board with a hexagonal grid representing a quilting pattern. Each hexagon can have
         // different colors and patterns.
 
@@ -34,6 +40,67 @@ public class Main {
         // placement and strategy.
 
         // User Interface (UI): Design a user-friendly interface for players to interact with the game, including
-        // dragging and dropping tiles, viewing their quilts, and accessing information about the game state.
+        //dragging and dropping tiles, viewing their quilts, and accessing information about the game state. **/
+    }
+
+    public static void newGame () {
+        Player[] players = new Player[4];
+        int numOfPlayers = howManyPlayers();
+
+        players = makePlayers(numOfPlayers,players);
+
+        for (int i = 0; i < numOfPlayers; i++) {
+            System.out.println(players[i].getName());
+        }
+    }
+
+    public static Player makePlayer (String playerName) {
+        return new Player(playerName);
+    }
+
+    public static int howManyPlayers () {
+        int numPlayers;
+
+        do {
+            System.out.println("How many players are playing? 1-4:");
+            numPlayers = sc.nextInt();
+        } while (numPlayers > 4 || numPlayers < 1);
+
+        return numPlayers;
+    }
+
+    public static Player[] makePlayers (int numPlayer, Player[] players) {
+        for (int i = 0; i < numPlayer; i++) {
+            players[i] = new Player(newName(i));
+        }
+
+        return players;
+    }
+
+    public static String newName (int playerNum) {
+        playerNum++;
+        System.out.println("What is the name of player " + playerNum + ": ");
+        return sc.next();
+    }
+
+    public static void createBag() {
+        String[] color = {"Blue", "Green", "Purple", "Pink", "Cyan", "Yellow"};
+        String[] pattern = {"Stripe", "Fishbone", "Flowers", "Paisley", "Quatrefoil", "Vines"};
+        String type = "playable";
+        Tile[] bag = new Tile[108];
+        int cnt = 0;
+
+        for (int i = 0; i < color.length; i++) {
+            for (int j = 0; j < pattern.length; j++) {
+                for (int k = 0; k < 3; k++) {
+                    bag[cnt] = new Tile(color[i], pattern[j], type);
+                    cnt++;
+                }
+            }
+        }
+
+        for (int i = 0; i < bag.length; i++) {
+            System.out.println("c: " + bag[i].getColor() + " p: " + bag[i].getPattern());
+        }
     }
 }
