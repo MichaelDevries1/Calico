@@ -8,7 +8,7 @@ public class Bag {
         this.unusedSize = 108;
         this.bagTiles = new Tile[this.unusedSize];
         String[] color = {"blue", "green", "purple", "pink", "cyan", "yellow"};
-        String[] pattern = {"stripe", "fishbone", "flowers", "paisley", "quatrefoil", "vines"};
+        String[] pattern = {"stripe", "fishbone", "flowers", "dots", "quatrefoil", "vines"};
         boolean border = false;
         int cnt = 0;
 

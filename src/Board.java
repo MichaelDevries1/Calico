@@ -54,8 +54,7 @@ public class Board {
                 String[] parts = line.split(","); // Split the line by comma
                 int row = Integer.parseInt(parts[0]); // Parse the row and column values
                 int column = Integer.parseInt(parts[1]);
-                this.tiles[row][column] = new PlayableTile(parts[2], parts[3],
-                        Boolean.parseBoolean(parts[4]), true); // Create a new tile and place it on the board
+                this.tiles[row][column] = new PlayableTile(parts[2], parts[3], true, true); // Create a new tile and place it on the board
             }
 
             scanner.close();
