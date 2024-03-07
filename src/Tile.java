@@ -1,11 +1,8 @@
-public class Tile {
-    String color;
-    String pattern;
-    Boolean Border;
-
-
-    public Tile(String color, String pattern) {
-        this.color = color;
-        this.pattern = pattern;
-    }
+public interface Tile {
+    Boolean playable = true;
+    Boolean getPlayable();
+    void setPlayable(Boolean playable);
+    String printTileString();
+    String getPattern();
+    String getColor();
 }
