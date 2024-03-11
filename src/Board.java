@@ -10,21 +10,18 @@ public class Board {
     private final Tile[] goalArea1;
     private final Tile[] goalArea2;
     private final Tile[] goalArea3;
-    String borderFilePath = "src/main/Resources/boarder.txt";
+    String borderFilePath = "src/border.txt";
 
     // Constructors
     public Board(String color) {
         this.color = color;
         this.tiles = new Tile[rows][columns]; // Creates a new board
         // Sets the color of the board
-        if (color.toLowerCase().equals("blue")) {
-            boardSetup(1); // Sets up the board
-        } else if (color.toLowerCase().equals("yellow")) {
-            boardSetup(2);
-        } else if (color.toLowerCase().equals("green")) {
-            boardSetup(3);
-        } else {
-            boardSetup(4);
+        switch (color.toLowerCase()) {
+            case "blue" -> boardSetup(1); // Sets up the board
+            case "yellow" -> boardSetup(2);
+            case "green" -> boardSetup(3);
+            default -> boardSetup(4);
         }
         this.goalArea1 = new Tile[6];
         this.goalArea2 = new Tile[6];
@@ -44,7 +41,7 @@ public class Board {
     public void boardSetup(int boardNumber) {
         boardNumber--; // Adjust the index to start from 0
         try {
-            Scanner scanner = new Scanner(new File("src/border.txt")); // Open the file
+            Scanner scanner = new Scanner(new File(borderFilePath)); // Open the file
             for (int i = 0; i < boardNumber * 24; i++) { // Skip to the correct row
                 scanner.nextLine();
             }
@@ -114,10 +111,6 @@ public class Board {
         return tiles;
     }
 
-    public String getColor() {
-        return color;
-    }
-
     public Tile[] getGoalArea1() {
         return goalArea1;
     }
@@ -130,12 +123,12 @@ public class Board {
         return goalArea3;
     }
 
-    public Boolean getGoal(int row, int column) {
+    public Boolean getType(int row, int column) {
         return tiles[row][column].getPlayable();
     }
 
     public void changeTileColorAndPattern(int row, int column, Tile tile) {
-        if (isValidPosition(row, column) && tiles[row][column] != null) {
+        if (isValidPosition(row, column) && tiles[row][column] == null) {
             tiles[row][column] = tile;
         }
     }

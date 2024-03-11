@@ -72,6 +72,17 @@
           </messages>
           <updatedAt value="2024-02-28T22:12:05.342008" />
         </chat>
+        <chat>
+          <internalId value="71ab8a5a-e1a7-4ba4-a5f7-6ce836a6de0a" />
+        </chat>
+        <chat>
+          <accountId value="VXNlcjozMjUyOTg=" />
+          <internalId value="0c37eead-f7d2-4688-bd59-bd06da9fcb44" />
+        </chat>
+        <chat>
+          <accountId value="VXNlcjozMjUyOTg=" />
+          <internalId value="70d0edaa-40aa-4bed-888d-5db343ba2235" />
+        </chat>
       </list>
     </chats>
   </component>

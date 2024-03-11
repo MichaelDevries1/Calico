@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class Bag {
-    private Tile[] bagTiles;
+    private final Tile[] bagTiles;
     private int unusedSize;
 
     public Bag() {

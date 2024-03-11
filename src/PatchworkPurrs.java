@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
-public class Main {
+public class PatchworkPurrs {
 
     static Scanner sc = new Scanner(System.in);
 
@@ -40,7 +40,7 @@ public class Main {
     public static Player[] makePlayers (int numPlayer) {
         Player[] players = new Player[numPlayer]; // Creates the array of players
         String[] validColors = {"blue", "green", "yellow", "purple"}; // List of valid colors
-        String chosenColor = "";
+        String chosenColor;
 
         for (int i = 0; i < numPlayer; i++) {
             players[i] = new Player(i); // Creates a new player
@@ -72,7 +72,7 @@ public class Main {
     }
 
     // Asks the 1st player if they want to play with goal tiles and sets the boards based on their response
-    public static void askFirstPlayerForGoalTiles(Player[] players, Board board) {
+    public static void askFirstPlayerForGoalTiles(Player[] players) {
         System.out.println("Player 1, do you want to play with goal tiles? (yes/no):");
         String response = sc.next();
 
